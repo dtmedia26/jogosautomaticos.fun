@@ -193,16 +193,16 @@
                 
               <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
     
-                <div id="mauticform_teste_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-1 mauticform-required">
-                    <label id="mauticform_label_teste_email" for="mauticform_input_teste_email" class="mauticform-label">email</label>
-                    <input id="mauticform_input_teste_email" name="mauticform[email]" value="" placeholder="mail" class="mauticform-input" type="email">
-                    <span class="mauticform-errormsg" style="display: none;">obrigatório</span>
-                </div>
-    
-                <div id="mauticform_teste_nome" data-validate="nome" data-validation-type="text" class="mauticform-row mauticform-text mauticform-field-2 mauticform-required">
+                <div id="mauticform_teste_nome" data-validate="nome" data-validation-type="text" class="mauticform-row mauticform-text mauticform-field-1 mauticform-required">
                     <label id="mauticform_label_teste_nome" for="mauticform_input_teste_nome" class="mauticform-label">nome</label>
                     <input id="mauticform_input_teste_nome" name="mauticform[nome]" value="" class="mauticform-input" type="text">
                     <span class="mauticform-errormsg" style="display: none;">Isso é obrigatório.</span>
+                </div>
+    
+                <div id="mauticform_teste_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-2 mauticform-required">
+                    <label id="mauticform_label_teste_email" for="mauticform_input_teste_email" class="mauticform-label">email</label>
+                    <input id="mauticform_input_teste_email" name="mauticform[email]" value="" placeholder="mail" class="mauticform-input" type="email">
+                    <span class="mauticform-errormsg" style="display: none;">obrigatório</span>
                 </div>
     
                 <div id="mauticform_teste_telefone" data-validate="telefone" data-validation-type="tel" class="mauticform-row mauticform-tel mauticform-field-3 mauticform-required">
@@ -211,7 +211,8 @@
                     <span class="mauticform-errormsg" style="display: none;">Isso é obrigatório.</span>
                 </div>
     
-                <div id="mauticform_teste_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-4">
+                    <input id="mauticform_input_teste_utm_source" name="mauticform[utm_source]" value="" class="mauticform-hidden" type="hidden">
+                <div id="mauticform_teste_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-5">
                     <button type="submit" name="mauticform[submit]" id="mauticform_input_teste_submit" value="" class="mauticform-button btn btn-default">Enviar</button>
                 </div>
                 </div>
@@ -223,6 +224,7 @@
     
             </form>
     </div>
+    
     
     
     <script type="text/javascript">
@@ -346,6 +348,34 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', Date.now());
   </script>
+
+
+<!-- MAUTIC TRACKING -->
+<script>
+  (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+        w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+        m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://mautic.jogosautomaticos.fun/mtc.js','mt');
+  if (window.location.href.indexOf("utm_source=") > -1) {
+    var utm_source = /(?:^|\D)utm_source=(.*?)(?:$|\W)/g.exec(window.location);
+    var source = utm_source[1];
+  } else {
+    var source = "";
+  };
+  if (window.location.href.indexOf("utm_medium=") > -1) {
+    var utm_medium = /(?:^|\D)utm_medium=(.*?)(?:$|\W)/g.exec(window.location);
+    var medium = utm_medium[1];
+  } else {
+    var medium = "";
+ };
+ if (window.location.href.indexOf("utm_campaign=") > -1) {
+    var utm_campaign = /(?:^|\D)utm_campaign=(.*?)(?:$|\W)/g.exec(window.location);
+    var campaign = utm_campaign[1];
+  } else {
+    var campaign = "";
+ }
+   mt('send', 'pageview', {source_utm: source, medium_utm: medium, campaign_utm: campaign});
+ </script>
 
 </body>
 
